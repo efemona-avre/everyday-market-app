@@ -1,0 +1,22 @@
+<form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+    <label for="name">Name:</label>
+    <input id="name" formControlName="name" />
+    <div *ngIf="registerForm.get('name')?.hasError('lettersOnly') && registerForm.get('name')?.touched">
+      Name can only contain letters.
+    </div>
+  
+    <label for="email">Email:</label>
+    <input id="email" formControlName="email" />
+    <div *ngIf="registerForm.get('email')?.hasError('email') && registerForm.get('email')?.touched">
+      Please enter a valid email.
+    </div>
+  
+    <label for="country">Country:</label>
+    <input id="country" formControlName="country" />
+    <div *ngIf="registerForm.get('country')?.hasError('invalidCountry') && registerForm.get('country')?.touched">
+      Only Canada is allowed.
+    </div>
+  
+    <button type="submit">Submit</button>
+  </form>
+  

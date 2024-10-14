@@ -1,0 +1,15 @@
+<ul>
+  <li *ngFor="let category of categories">
+    <button (click)="selectCategory(category)">
+      {{ category.name }}
+    </button>
+  </li>
+</ul>
+
+<!-- Display the selected category's products when a category is clicked -->
+<div *ngIf="selectedCategory">
+  <h3>{{ selectedCategory.name }}</h3>
+  <ul>
+    <li *ngFor="let product of selectedCategory.products">{{ product }}</li>
+  </ul>
+</div>
